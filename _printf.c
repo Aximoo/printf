@@ -1,4 +1,5 @@
 #include "main.h"
+
 void print_buffer(char buffer[], int *buff_ind);
 
 /**
@@ -36,13 +37,13 @@ int _printf(const char *format, ...)
 			precision = get_precision(format, &i, list);
 			size = get_size(format, &i);
 			++i;
-			printed = handle_print(format, &i, list, buffer,
-				flags, width, precision, size);
+			printed = handle_print(format, &i, list, buffer,flags, width, precision, size);
 			if (printed == -1)
 				return (-1);
 			printed_chars += printed;
 		}
 	}
+
 	print_buffer(buffer, &buff_ind);
 
 	va_end(list);
@@ -62,4 +63,3 @@ void print_buffer(char buffer[], int *buff_ind)
 
 	*buff_ind = 0;
 }
-
